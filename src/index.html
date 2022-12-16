@@ -111,7 +111,7 @@
 				}
 				for (var i = event.resultIndex; i < event.results.length; i++) {
 					console.log((event.results[i].isFinal ? "S " : "W ")+event.results[i][0].transcript);
-					if(event.results[i][0].confidence < .1) continue;
+					if(event.results[i][0].confidence < .01) continue;
 					//$content.append('<p class="words">'+event.results[i][0].transcript+'</p>');
 					$.post('/result', {
 						transcript: String(event.results[i][0].transcript),

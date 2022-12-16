@@ -38,7 +38,12 @@ class SleepThread(threading.Thread):
             # print("sleeping...", self.count)
             time.sleep(1)
         # print("END OF SLEEP")
-        self.reco.osc_client.send('/cue/reco/text', " ")
+        self.reco.osc_client.send('/cue/reco/text', "     ")
+        self.reco.osc_client.send('/cue/reco/text/format/fontName', "Avenir")
+        self.reco.osc_client.send('/cue/reco/text/format/alignment', "left")
+        self.reco.osc_client.send('/cue/reco/text/format/fontSize', 48)
+        self.reco.osc_client.send('/cue/reco/text/format/color', [0.95, 1, 0.49, 1])
+
         self.reco.words = []
         self.reco.lastMess = ""
 
@@ -144,7 +149,7 @@ class Reco:
                 'sentence': int(bottle.request.forms.sentence)}
         self.lastMess = self.mess
         self.mess = result['transcript'] #self.mess + " " +
-        # print(" >>>>", self.mess, " (LAST", self.lastMess, ")")
+        #print(" >>>>", self.mess, " (LAST", self.lastMess, ")")
 
         current = self.mess.split(" ")
 
@@ -215,7 +220,7 @@ class Reco:
         charnum = len(self.outmess)
         wordnum = len(self.words)
 
-        print(">>>", self.sentence, wordnum, charnum, self.outmess)
+        #print(">>>", self.sentence, wordnum, charnum, self.outmess)
 
         self.sentences = self.outmess.split("\n")
         if len(self.sentences) > 2 :
@@ -223,8 +228,15 @@ class Reco:
             for j in self.sentences[-2:] :
                 self.outmess = self.outmess + j + "\n"
 
+        print("OUT", self.outmess)
+
+
         if self.mess :
             self.osc_client.send('/cue/reco/text', self.outmess)
+            self.osc_client.send('/cue/reco/text/format/fontName', "Avenir")
+            self.osc_client.send('/cue/reco/text/format/alignment', "left")
+            self.osc_client.send('/cue/reco/text/format/fontSize', 48)
+            self.osc_client.send('/cue/reco/text/format/color', [0.95, 1, 0.49, 1])
 
         if self.sentence :
             self.words = []

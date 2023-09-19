@@ -326,7 +326,7 @@ int dBmtoPercentage(int dBm)
  *******************/
 
 void sendIP() {
-  OSCMessage msg("/ip");
+  OSCMessage msg("/trytoprint/ip");
   msg.add(WiFi.localIP()[0]);
   msg.add(WiFi.localIP()[1]);
   msg.add(WiFi.localIP()[2]);
@@ -348,11 +348,43 @@ void oscBright(OSCMessage &msg) {
 }
 
 void oscTest(OSCMessage &msg) {
+  OSCMessage msg2("/trytoprint/ready");
+  msg2.add(1);
+  Udp.beginPacket(broadcast, outPort);
+  msg2.send(Udp);
+  Udp.endPacket();
+  msg2.empty();
+
+
   pix.setPixelColor(0, color_blue);
   pix.show();
   delay(50);
   pix.setPixelColor(0, color_green);
   pix.show();
+
+}
+
+void oscFeed(OSCMessage &msg) {
+  Serial.print("Feed IP : ");
+  Serial.print(msg.getInt(0));
+  Serial.print(" ");
+  Serial.print(msg.getInt(1));
+  Serial.print(" ");
+  Serial.print(msg.getInt(2));
+  Serial.print(" ");
+  Serial.println(msg.getInt(3));
+  broadcast[0] = msg.getInt(0);
+  broadcast[1] = msg.getInt(1);
+  broadcast[2] = msg.getInt(2);
+  broadcast[3] = msg.getInt(3);
+  /*Serial.print("Broadcast : ");
+  Serial.print(broadcast[0]);
+  Serial.print(" ");
+  Serial.print(broadcast[1]);
+  Serial.print(" ");
+  Serial.print(broadcast[2]);
+  Serial.print(" ");
+  Serial.println(broadcast[3]);*/
 }
 
 void oscMotor1(OSCMessage &msg) {
@@ -420,13 +452,14 @@ void receiveMsg() {
     }
 
     if (!msg.hasError()) {
-      msg.dispatch("/led", oscLed);
-      msg.dispatch("/test", oscTest);
-      msg.dispatch("/bright", oscBright);
-      msg.dispatch("/motor1", oscMotor1);
-      msg.dispatch("/motor2", oscMotor2);
-      msg.dispatch("/motor3", oscMotor3);
-      msg.dispatch("/motor4", oscMotor4);
+      msg.dispatch("/trytoprint/led", oscLed);
+      msg.dispatch("/trytoprint/test", oscTest);
+      msg.dispatch("/trytoprint/bright", oscBright);
+      msg.dispatch("/trytoprint/feed", oscFeed);
+      msg.dispatch("/trytoprint/motor1", oscMotor1);
+      msg.dispatch("/trytoprint/motor2", oscMotor2);
+      msg.dispatch("/trytoprint/motor3", oscMotor3);
+      msg.dispatch("/trytoprint/motor4", oscMotor4);
     } else {
       OSCErrorCode error = msg.getError();
       Serial.print("error: ");

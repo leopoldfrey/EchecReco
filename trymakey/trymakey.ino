@@ -22,6 +22,7 @@ WiFiUDP Udp;                          // A UDP instance to let us send and recei
 const unsigned int localPort = 8000;  // local port to listen for UDP packets at the NodeMCU (another device must send OSC messages to this port)
 const unsigned int outPort = 13996;   // remote port of the target device where the NodeMCU sends OSC to
 IPAddress broadcast(0, 0, 0, 0);
+bool IPreceived = false;
 
 /*******************
     SETUP
@@ -62,11 +63,12 @@ void loop() {
   float currentAverage = filter.reading(analogRead(sensorPin));
   sendPress(currentAverage);
   //Serial.println(currentAverage);
-  receiveOsc();
+  if (!IPreceived)
+    receiveOsc();
   /*if (!connected && !scanning) {
     scan();
   }*/
-  delay(10);
+  //delay(10);
 }
 
 
@@ -323,6 +325,7 @@ void oscFeed(OSCMessage &msg) {
   broadcast[1] = msg.getInt(1);
   broadcast[2] = msg.getInt(2);
   broadcast[3] = msg.getInt(3);
+  IPreceived = true;
 }
 
 void oscTest(OSCMessage &msg) {

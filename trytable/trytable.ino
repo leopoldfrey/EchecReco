@@ -41,13 +41,9 @@ IPAddress broadcast(0, 0, 0, 0);
 
 /**** ACCELSTEPPER ****/
 
-#define STEP_PIN A0  // JAUNE
-#define DIR_PIN A1   // VERT
-// GND GRIS
-
-//JAUNE SUR PULL+
-//VERT SUR DIR+
-//GRIS SUR PULL- / DIR-
+#define STEP_PIN A0  // BLANC SUR PULL+
+#define DIR_PIN A1   // GRIS SUR DIR+
+//GND NOIR SUR PULL- / DIR-
 
 // Define the Pins used
 AccelStepper stepper(AccelStepper::DRIVER, STEP_PIN, DIR_PIN);  // (1=external driver, pinStep, pinDir)

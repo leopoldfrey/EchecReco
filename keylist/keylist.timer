@@ -1,9 +1,0 @@
-[Unit]
-Description=Boot Keylist
-
-[Timer]
-OnBootSec=60
-Unit=keylist.service
-
-[Install]
-WantedBy=multi-user.target

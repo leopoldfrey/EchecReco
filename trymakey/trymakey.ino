@@ -20,7 +20,7 @@ char *cur_pass = "none";
 
 WiFiUDP Udp;                          // A UDP instance to let us send and receive packets over UDP
 const unsigned int localPort = 8000;  // local port to listen for UDP packets at the NodeMCU (another device must send OSC messages to this port)
-const unsigned int outPort = 13996;   // remote port of the target device where the NodeMCU sends OSC to
+const unsigned int outPort = 13990;   // remote port of the target device where the NodeMCU sends OSC to
 IPAddress broadcast(0, 0, 0, 0);
 bool IPreceived = false;
 

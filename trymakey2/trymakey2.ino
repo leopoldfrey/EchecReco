@@ -62,10 +62,11 @@ void setup() {
 void loop() {
 
   float currentAverage = filter.reading(analogRead(sensorPin)*4);
-  //Serial.print("press: ");
-  //Serial.println(currentAverage);
+  Serial.print("wifi: ");
+  Serial.print(WiFi.status());
+  Serial.print(" | press: ");
+  Serial.println(currentAverage);
   sendPress(currentAverage);
-  //Serial.println(currentAverage);
   if (!IPreceived)
     receiveOsc();
 

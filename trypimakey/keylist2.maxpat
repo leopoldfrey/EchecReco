@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 146.0, 163.0, 1480.0, 652.0 ],
+		"rect" : [ 146.0, 163.0, 1426.0, 701.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,18 +39,6 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-42",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 699.5, 150.0, 24.0, 24.0 ]
-				}
-
-			}
-, 			{
 				"box" : 				{
 					"id" : "obj-59",
 					"maxclass" : "newobj",
@@ -303,7 +291,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-63",
-					"items" : [ "/dev/input/event6 usb-0000:01:00.0-1.1/input2 Arduino LLC Arduino Leonardo Keyboard", ",", "/dev/input/event5 usb-0000:01:00.0-1.1/input2 Arduino LLC Arduino Leonardo Mouse", ",", "/dev/input/event4 usb-0000:01:00.0-1.3.2.2/input1 Apple, Inc Apple Keyboard", ",", "/dev/input/event1 usb-0000:01:00.0-1.3.2.2/input0 Apple, Inc Apple Keyboard", ",", "/dev/input/event0 usb-0000:01:00.0-1.3.3/input0 Logitech Trackball", ",", "/dev/input/event3 vc4-hdmi-1/input0 vc4-hdmi-1", ",", "/dev/input/event2 vc4-hdmi-0/input0 vc4-hdmi-0" ],
+					"items" : "<empty>",
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -320,8 +308,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1030.0, 163.0, 127.0, 22.0 ],
-					"text" : "/makeymakey/devices"
+					"patching_rect" : [ 1030.0, 163.0, 133.0, 22.0 ],
+					"text" : "/makeymakey2/devices"
 				}
 
 			}
@@ -344,8 +332,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1195.0, 286.0, 145.0, 22.0 ],
-					"text" : "/makeymakey/verbose $1"
+					"patching_rect" : [ 1195.0, 286.0, 152.0, 22.0 ],
+					"text" : "/makeymakey2/verbose $1"
 				}
 
 			}
@@ -356,8 +344,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1195.0, 204.0, 115.0, 22.0 ],
-					"text" : "/makeymakey/test 1"
+					"patching_rect" : [ 1195.0, 204.0, 122.0, 22.0 ],
+					"text" : "/makeymakey2/test 1"
 				}
 
 			}
@@ -547,8 +535,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1195.0, 168.5, 157.0, 22.0 ],
-					"text" : "prepend /makeymakey/feed"
+					"patching_rect" : [ 1195.0, 168.5, 163.0, 22.0 ],
+					"text" : "prepend /makeymakey2/feed"
 				}
 
 			}
@@ -560,7 +548,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1226.0, 124.0, 126.0, 22.0 ],
-					"text" : "192.168.1.64"
+					"text" : "192.168.1.3"
 				}
 
 			}
@@ -582,8 +570,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 733.0, 279.0, 167.0, 22.0 ],
-					"text" : "udpsend makeypi.local 14030"
+					"patching_rect" : [ 802.0, 329.0, 174.0, 22.0 ],
+					"text" : "udpsend makeypi2.local 14030"
 				}
 
 			}
@@ -595,7 +583,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 761.0, 157.0, 108.0, 22.0 ],
-					"text" : "192.168.1.149"
+					"text" : "192.168.1.2"
 				}
 
 			}
@@ -696,8 +684,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 230.5, 67.0, 119.0, 22.0 ],
-					"text" : "print MAKEYMAKEY"
+					"patching_rect" : [ 230.5, 67.0, 126.0, 22.0 ],
+					"text" : "print MAKEYMAKEY2"
 				}
 
 			}
@@ -841,8 +829,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 157.0, 238.5, 132.0, 22.0 ],
-					"text" : "24 KEY_O"
+					"patching_rect" : [ 157.0, 238.5, 132.0, 22.0 ]
 				}
 
 			}
@@ -866,8 +853,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 67.5, 188.0, 132.0, 22.0 ],
-					"text" : "20 KEY_T"
+					"patching_rect" : [ 67.5, 188.0, 132.0, 22.0 ]
 				}
 
 			}
@@ -878,8 +864,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 37.0, 67.0, 143.0, 22.0 ],
-					"text" : "OSC-route /makeymakey"
+					"patching_rect" : [ 37.0, 67.0, 150.0, 22.0 ],
+					"text" : "OSC-route /makeymakey2"
 				}
 
 			}
@@ -891,7 +877,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 37.0, 25.0, 104.0, 22.0 ],
-					"text" : "udpreceive 14028"
+					"text" : "udpreceive 14029"
 				}
 
 			}
@@ -1219,14 +1205,6 @@
 					"destination" : [ "obj-40", 0 ],
 					"order" : 2,
 					"source" : [ "obj-6", 7 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-42", 0 ],
-					"order" : 2,
-					"source" : [ "obj-6", 8 ]
 				}
 
 			}

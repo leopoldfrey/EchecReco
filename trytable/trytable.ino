@@ -361,6 +361,8 @@ void sendIP() {
 }
 
 void sendPosition() {
+  //Serial.print("SEND POS : ");
+  //Serial.println((int)stepper.currentPosition());
   OSCMessage msg("/trytable/pos");
   msg.add((int)stepper.currentPosition());
   Udp.beginPacket(broadcast, outPort);

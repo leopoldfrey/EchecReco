@@ -61,8 +61,11 @@ void setup() {
 void loop() {
 
   float currentAverage = filter.reading(analogRead(sensorPin));
+  /*Serial.print("wifi: ");
+  Serial.print(WiFi.status());
+  Serial.print(" | press: ");
+  Serial.println(currentAverage);*/
   sendPress(currentAverage);
-  //Serial.println(currentAverage);
   if (!IPreceived)
     receiveOsc();
   /*if (!connected && !scanning) {
@@ -77,7 +80,7 @@ void loop() {
  *******************/
 
 void WiFiEvent(WiFiEvent_t event) {
-  //Serial.printf("[WiFi-event] event: %d\n", event);
+  Serial.printf("[WiFi-event] event: %d\n", event);
 
   switch (event) {
     case ARDUINO_EVENT_WIFI_READY:
@@ -167,9 +170,9 @@ void WiFiEvent(WiFiEvent_t event) {
 }
 
 void WiFiGotIP(WiFiEvent_t event, WiFiEventInfo_t info) {
-  //Serial.println("WiFi connected");
-  //Serial.println("IP address: ");
-  //Serial.println(IPAddress(info.got_ip.ip_info.ip.addr));
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(IPAddress(info.got_ip.ip_info.ip.addr));
   Serial.println(" ");
   Serial.print("Connected, IP address: ");
   Serial.print(WiFi.localIP());

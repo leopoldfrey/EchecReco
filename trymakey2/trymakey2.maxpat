@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 83.0, 87.0, 1289.0, 738.0 ],
+		"rect" : [ 117.0, 254.0, 1289.0, 738.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -1266,7 +1266,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 343.0, 421.0, 208.0, 22.0 ],
-					"text" : "host 10.0.1.5"
+					"text" : "host 192.168.1.5"
 				}
 
 			}
@@ -1319,7 +1319,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 354.666666666666629, 198.0, 133.0, 22.0 ],
-					"text" : "10 0 1 5"
+					"text" : "192 168 1 5"
 				}
 
 			}
@@ -1534,7 +1534,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 333.0, 524.0, 126.0, 22.0 ],
-					"text" : "10 0 1 2"
+					"text" : "192 168 1 2"
 				}
 
 			}
@@ -1545,8 +1545,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 86.0, 545.625, 111.0, 22.0 ],
-					"text" : "host 192.168.1.255"
+					"patching_rect" : [ 86.0, 545.625, 98.0, 22.0 ],
+					"text" : "host 192.168.1.5"
 				}
 
 			}
@@ -1593,7 +1593,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 98.0, 661.0, 151.0, 22.0 ],
-					"text" : "udpsend 192.168.1.7 8000"
+					"text" : "udpsend 192.168.1.5 8000"
 				}
 
 			}

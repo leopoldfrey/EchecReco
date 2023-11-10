@@ -1,0 +1,15 @@
+[Unit]
+Description=Keyboard & Mouse monitor
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/bin/python /home/makeypi/keylist/keylist.py
+WorkingDirectory=/home/makeypi/keylist/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=makeypi
+
+[Install]
+WantedBy=multi-user.target
